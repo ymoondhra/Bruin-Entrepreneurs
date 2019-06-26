@@ -1,0 +1,172 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <!-- Place favicon.ico in the root directory -->
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700|Montserrat:600,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/be.css">
+
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <div id="menubar" class="navBar flex">
+    <div class="navButtonContainer flex">
+      <a href="../index.html" class="navButton">
+        Home
+      </a>
+    </div>
+    <div class="navButtonContainer flex">
+      <a href="index.html" class="navButton">
+        Meet the Team
+      </a>
+    </div>
+    <div class="navButtonContainer flex">
+      
+      <a href="../whatwedo/index.html" class="navButton">
+        What we do
+      </a>
+    </div>
+    <div class="navButtonContainer flex">
+      <a href="../getinvolved/index.html" class="navButton">
+        Get Involved
+      </a>
+    </div>
+  </div>
+
+
+  <div id="be-people" class="section">
+    <h2>meet the team</h2>
+    <p>
+      Bruin Entrepreneurs’ board is a diverse group of students who are passionate about pushing boundaries and sharing the values of entrepreneurship and new ideas.
+    </p>
+
+    <h3>executive board</h3>
+    <ul class="no-list people">
+      <li class="card" v-for="person in execBoard">
+        <span class="image-frame"><img v-bind:src="person.photo" v-bind:alt="person.name"></span>
+        <person v-bind:card="person" />
+      </li>
+    </ul>
+
+    <h3>Directors</h3>
+    <ul class="no-list people">
+      <li class="card" v-for="person in directors">
+        <span class="image-frame"><img v-bind:src="person.photo" v-bind:alt="person.name"></span>
+        <person v-bind:card="person" />
+      </li>
+    </ul>
+    
+    <h3>board members</h3>
+    <ul class="no-list people">
+      <li class="card" v-for="person in boardMembers">
+        <span class="image-frame"><img v-bind:src="person.photo" v-bind:alt="person.name"></span>
+        <person v-bind:card="person" />
+      </li>
+    </ul>
+
+    <h3>advisors</h3>
+    <ul class="no-list people">
+      <li class="card" v-for="person in advisors">
+        <span class="image-frame"><img v-bind:src="person.photo" v-bind:alt="person.name"></span>
+        <person v-bind:card="person" />
+      </li>
+    </ul>
+  </div>
+
+  <div id="footer">
+    <img class="footer-bg" src="../img/skyline.png" alt="skyline"/>
+    <ul class="no-list">
+      <li class="orgname">Bruin Entrepreneurs</li>
+      <li><a href="https://facebook.com/bruinentrepreneurs"><img src="../img/facebook.png" alt="BE FB page"/></a></li>
+      <li><a href="https://medium.com/@BruinEntrepreneurs"><img src="../img/medium.png" alt="BE Medium page"/></a></li>
+      <li><a href="mailto:contact@bruinentrepreneurs.org"><img src="../img/email.png" alt="BE email"/></a></li>
+    </ul>
+  </div>
+
+
+<!--   <script src="../js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="../js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="../js/plugins.js"></script>
+  <script src="../js/main.js"></script> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script>
+    Vue.component('person', {
+      props: ['card'],
+      template: '<div> \
+          <span class="name">{{ card.name }}</span>    \
+          <span class="title">{{ card.title }}</span>  \
+          <span class="major">{{ card.major }}</span>  \
+          <span class="year">{{ card.year }}</span>    \
+        </div>'
+    });
+ 
+    var bePeople = new Vue({
+      el: "#be-people",
+      data: {
+        execBoard: [
+          {name: "Emily Chung", title: "President", major: "Economics", year: "2020", photo: "../img/Facebook_Profile_Pictures_2018/Emily.png"},
+          {name: "Aneri Chouhan", title: "External VP", major: "Cognitive Science", year: "2020", photo: "../img/Facebook_Profile_Pictures_2018/Aneri.png"},
+          {name: "Samantha Chandra", title: "Internal Co-VP", major: "Business Economics", year: "2020", photo: "../img/Facebook_Profile_Pictures_2018/Samantha.png"},
+          {name: "Henry Yang", title: "Internal Co-VP", major: "Computer Science", year: "2019", photo: "../img/Facebook_Profile_Pictures_2018/Henry.png"},
+        ],
+        directors: [
+          {name: "Tiffany Yu", title: "Designathon Director", major: "Cognitive Science", year: "2019", photo: "../img/Facebook_Profile_Pictures_2018/Tiffany.png"},
+          {name: "Nicole Cheng", title: "Partnerships Director", major: "Undeclared Engineering", year: "2021", photo: "../img/Facebook_Profile_Pictures_2018/Nicole.png"},
+          {name: "Rahul Sheth", title: "Tech Director", major: "Computer Science", year: "2020", photo: "../img/Facebook_Profile_Pictures_2018/Rahul.png"},
+          {name: "Ryan Teng", title: "1000 Pitches Director", major: "Economics", year: "2019", photo: "../img/Facebook_Profile_Pictures_2018/Ryan.png"},
+          {name: "Anita Ilango", title: "Startup Labs Director", major: "Computer Science", year: "2021", photo: "../img/Facebook_Profile_Pictures_2018/Anita.png"},
+          {name: "Riley Grant", title: "Weekly Nights Director", major: "Philosophy", year: "2021", photo: "../img/Facebook_Profile_Pictures_2018/Riley.png"},
+          {name: "Natasha Puthukudy", title: "Designathon Director", major: "Design Media Arts", year: "2021", photo: "../img/Facebook_Profile_Pictures_2018/Natasha.png"},
+        ],
+        boardMembers: [
+          {name: "Andy Chen", title: "Events", major: "Cognitive Science", year: "2020", photo: "../img/Facebook_Profile_Pictures_2018/Andy.png"},
+          {name: "Hanad Musa", title: "Events", major: "Computer Science", year: "2019", photo: "../img/Facebook_Profile_Pictures_2018/Hanad.png"},
+          {name: "Audi Liu", title: "Partnerships", major: "Mathematics/Computation", year: "2021", photo: "../img/Facebook_Profile_Pictures_2018/Audi.png"},
+          {name: "Ruban Rengaraju", title: "Tech & Events", major: "Computer Science", year: "2021", photo: "../img/Facebook_Profile_Pictures_2018/Ruban.png"},
+          {name: "Yash Moondhra", title: "Tech", major: "Computer Science", year: "2021", photo: "../img/Facebook_Profile_Pictures_2018/Yash.png"},
+          {name: "Hamilton Tran", title: "Partnerships", major: "Civil Engineering", year: "2020", photo: "../img/Facebook_Profile_Pictures_2018/Hamilton.png"},
+        ],
+        advisors: [
+          {name: "Anshul Aggarwal", title: "Tech", major: "Computer Science", year: "2019", photo: "../img/Facebook_Profile_Pictures_2018/Anshul.png"},
+          {name: "Mitchell Zia", title: "Internal Events", major: "Economics", year: "2019", photo: "../img/Facebook_Profile_Pictures_2018/Mitchell.png"},
+          {name: "Martin Kong", title: "Events & Partnerships", major: "Computer Science", year: "2019", photo: "../img/Facebook_Profile_Pictures_2018/Martin.png"},
+          {name: "Michael Yu", title: "Tech", major: "Computer Science", year: "2019", photo: "../img/Facebook_Profile_Pictures_2018/Michael.png"},
+          {name: "Hassan Elabbady", title: "Events", major: "Mathematics/Economics", year: "2019", photo: "../img/Facebook_Profile_Pictures_2018/Hassan.png"},
+          {name: "Amol Sachdeva", title: "Events", major: "Economics", year: "2019", photo: "../img/Facebook_Profile_Pictures_2018/Amol.png"},
+          {name: "Andrew Wei", title: "Events", major: "Economics", year: "2019", photo: "../img/Facebook_Profile_Pictures_2018/Andrew.png"},
+          {name: "Rohan Kumar", title: "Creative", major: "Cognitive Science", year: "2020", photo: "../img/Facebook_Profile_Pictures_2018/Rohan.png"},
+        ],
+      }
+    });
+  </script>
+
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<!--   <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script> -->
+</body>
+
+</html>
